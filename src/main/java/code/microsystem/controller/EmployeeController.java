@@ -54,8 +54,10 @@ public class EmployeeController {
 		return employee.get();
 		
 	}
+	
+	
 	@GetMapping("/getEmployeeByName")
-	public Employee getEmpByFname(@RequestParam("fname") String name) {
+	public Employee getEmpByFname1(@RequestParam("fname") String name) {
 		Optional<Employee> employee = employeeService.findByName(name);
 		if (employee.isPresent()) {
 			System.out.println(employee.get());
@@ -68,6 +70,22 @@ public class EmployeeController {
 		return employee.get();
 		
 	}
+	
+	@GetMapping("/getEmployeeByEmail")
+	public Employee getEmpByFemail(@RequestParam("email") String femail) {
+		Optional<Employee> employee = employeeService.findByEmail(femail);
+		if (employee.isPresent()) {
+			System.out.println(employee.get());
+			
+		}else {
+			System.out.println("No employee found with email"+ femail);
+		}
+		
+		
+		return employee.get();
+		
+	}
+
 	
 //	update Employee Details
 	@PutMapping("/editEmployee/{id}")
