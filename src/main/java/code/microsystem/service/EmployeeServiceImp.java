@@ -64,4 +64,10 @@ public class EmployeeServiceImp implements EmployeeService {
 		return employeeRepository.findByEmail(femail); 
 	}
 
+	@Override
+	public Optional<Employee> findByNameAndEmail(String name, String femail) {
+		
+		return employeeRepository.findByNameAndEmail(name,femail);
+	}
+
 }

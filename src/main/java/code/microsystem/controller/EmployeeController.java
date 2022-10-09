@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 import code.microsystem.entity.Employee;
 import code.microsystem.exception.ResourceNotFoundException;
 import code.microsystem.service.EmployeeService;
+import io.swagger.annotations.Api;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/api/v1")
+@Tag(name = "Employee SErvice",description = "Service for Employee")
 public class EmployeeController {
 	@Autowired
 	EmployeeService employeeService;
@@ -82,6 +85,21 @@ public class EmployeeController {
 		}
 		
 		
+		return employee.get();
+		
+	}
+	
+	@GetMapping("/getEmployeeByName&Email")
+	public Employee getEmpByNameAndemail(@RequestParam("fname")String name, @RequestParam("email")String femail) {
+		Optional<Employee> employee=employeeService.findByNameAndEmail(name,femail);
+		if (employee.isPresent()) {
+			System.out.println(employee.get());
+			
+		}else {
+			System.out.println("No employee found with name"+ name);
+			System.out.println("No employee found with email"+ femail);
+			
+		}
 		return employee.get();
 		
 	}

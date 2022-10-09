@@ -2,9 +2,12 @@ package code.microsystem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-//@OpenAPIDefinition(info = @Info(title = "Employees API", version = "2.0", description = "Employees Information"))
+@EnableWebMvc
 
 public class SpringBootEmployeeCrudApllicationApplication {
 

@@ -21,4 +21,6 @@ public interface EmployeeService {
 
 	public Optional<Employee> findByEmail(String femail);
 
+	public Optional<Employee> findByNameAndEmail(String name, String femail);
+
 }
